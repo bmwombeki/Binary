@@ -426,6 +426,7 @@ public:
         if(newNode == nullptr){
             return false;
         }
+        
         else if((i > rSize) || (i<1)){
             return false;
         }
@@ -435,43 +436,6 @@ public:
             return true;
         }
     } // end of get_ith function....
-    
-    
-    
-    
-    /*
-     * get_ith_SLOW:  slow version of get_ith which gives the right answer, but
-     *   does so by "walking the entire tree".
-     * might be helpful for debugging?
-     * Private helper below does most of the work
-     */
-    /*bool get_ith_SLOW(int i, T &x) {
-     int n = size();
-     int sofar=0;
-     
-     if(i < 1 || i > n)
-     return false;
-     
-     _get_ith_SLOW(root, i, x, sofar);
-     return true;
-     }
-     
-     private:
-     // recursive helper function that does most of the work
-     static void _get_ith_SLOW(bst_node *t, int i, T &x, int &sofar) {
-     if(t==nullptr)
-     return;
-     _get_ith_SLOW(t->left, i, x, sofar);
-     
-     if(sofar==i)
-     return;
-     sofar++;
-     if(sofar==i) {
-     x = t->val;
-     return;
-     }
-     _get_ith_SLOW(t->right, i, x, sofar);
-     }*/
     
 public:
     
@@ -516,6 +480,7 @@ public:
         if(root == nullptr) {
             return -1;
         }
+        
         else {
             return  position_of_helper (root, (root->numLeftSubtrees +1), x); // call  helper function
         }
@@ -542,6 +507,7 @@ private:
                 return position_of_helper(t->right, y, z);
             }
         }
+        
         else {
             return -1; // means y is not in the tree
         }
